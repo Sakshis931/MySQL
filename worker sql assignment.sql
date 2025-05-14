@@ -83,42 +83,72 @@ FROM Workerdetails;
 
 
 -- 6.Write an SQL query to print the FIRST_NAME from the Worker table after removing white spaces from the right side.
-
+SELECT trim((FIRST_NAME))
+FROM Workerdetails;
 
 
 -- Q-7. Write an SQL query to print the DEPARTMENT from the Worker table after removing white spaces from the left side.
+SELECT trim(department) as trimmed
+FROM Workerdetails;
 
 
 -- Q-8. Write an SQL query that fetches the unique values of DEPARTMENT from the Worker table and prints its length.
+SELECT distinct department,length(department)
+FROM Workerdetails;
 
 
 
 -- Q-9. Write an SQL query to print the FIRST_NAME from the Worker table after replacing ‘a’ with ‘A’.
+SELECT replace((FIRST_NAME),'a','A')
+FROM Workerdetails;
 
 -- Q-10. Write an SQL query to print the FIRST_NAME and LAST_NAME from the Worker table into a single column COMPLETE_NAME. A space char should separate them.
+SELECT concat(FIRST_NAME,' ',LAST_NAME)
+FROM Workerdetails;
+
 
 -- Q-11. Write an SQL query to print all Worker details from the Worker table order by FIRST_NAME Ascending.
+SELECT *
+FROM Workerdetails
+order by FIRST_NAME;
 
 -- Q-12. Write an SQL query to print all Worker details from the Worker table order by FIRST_NAME Ascending and DEPARTMENT Descending.
-
+SELECT *
+FROM Workerdetails
+order by FIRST_NAME asc, department desc;
 
 -- Q-13. Write an SQL query to print details for Workers with the first names “Vipul” and “Satish” from the Worker table.
-
-
+SELECT *
+FROM Workerdetails
+where FIRST_NAME='vipul' or FIRST_NAME='Satish';
 -- Q-14. Write an SQL query to print details of workers excluding first names, “Vipul” and “Satish” from the Worker table.
+SELECT *
+FROM Workerdetails
+where FIRST_NAME not in ('vipul','Satish');  -- NOT IN(IMPORTANTTT)
 
 
 -- Q-15. Write an SQL query to print details of Workers with DEPARTMENT name as “Admin”.
+SELECT * 
+FROM Workerdetails 
+WHERE DEPARTMENT='admin';
 
 -- Q-16. Write an SQL query to print details of the Workers whose FIRST_NAME contains ‘a’.
+SELECT * 
+FROM Workerdetails 
+WHERE FIRST_NAME LIKE '%a%';
 
 
 -- Q-17. Write an SQL query to print details of the Workers whose FIRST_NAME ends with ‘a’.
+select * 
+from Workerdetails
+where substring((FIRST_NAME),-1)='a';
 
 
 
 -- Q-18. Write an SQL query to print details of the Workers whose FIRST_NAME ends with ‘h’ and contains six alphabets.
-
+select * 
+from Workerdetails
+where substring((FIRST_NAME),-1)='h' and length(FIRST_NAME)=6;
 
 -- Q-19. Write an SQL query to print details of the Workers whose SALARY lies between 100000 and 500000.
 select * from Workerdetails
